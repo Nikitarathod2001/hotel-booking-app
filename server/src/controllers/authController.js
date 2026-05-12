@@ -104,3 +104,19 @@ export const getMe = async (req, res) => {
     });
   }
 };
+
+
+export const adminDashboard = async (req, res) => {
+  try {
+
+    res.status(200).json({
+      message: `Welcome Admin ${req.user.name}`
+    });
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
