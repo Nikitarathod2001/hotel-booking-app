@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import router from "./src/routes/authRoute.js";
+import hotelRouter from "./src/routes/hotelRoute.js";
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 // routes
 app.use("/api/auth", router);
+app.use("/api/hotels", hotelRouter);
 
 
 export default app;
