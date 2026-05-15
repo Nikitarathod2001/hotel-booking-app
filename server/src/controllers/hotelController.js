@@ -45,12 +45,77 @@ export const createHotel = async (req, res) => {
 export const getHotels = async (req, res) => {
   try {
 
-    const hotels = await Hotel.find().populate(
-      "createdBy",
-      "name email"
-    );
+    // Destructure query params
+    const {
+      search,
+      minPrice,
+      maxPrice,
+      sort,
+      order,
+      page = 1,
+      limit = 5,
+    } = req.query;
 
-    res.status(200).json(hotels);
+    // query object
+    const query = {};
+
+    // search by name or location
+    if(search) {
+      query.$or = [
+        {
+          name: {
+            $regex: search,
+            $options: "i",
+          },
+        },
+        {
+          location: {
+            $regex: search,
+            $options: "i",
+          },
+        },
+      ];
+    }
+
+    // price filtering
+    if(minPrice || maxPrice) {
+      query.pricePerNight = {};
+
+      if(minPrice) {
+        query.pricePerNight.$gte = Number(minPrice);
+      }
+
+      if(maxPrice) {
+        query.pricePerNight.$lte = Number(maxPrice);
+      }
+    }
+
+    // sorting object
+    let sortOption = {};
+
+    if(sort) {
+      sortOption[sort] = order === "desc" ? -1 : 1;
+    }
+
+    // pagination
+    const skip = (page - 1) * limit;
+
+    // fetch hotels
+    const hotels = await Hotel.find(query)
+      .populate("createdBy", "name email")
+      .sort(sortOption)
+      .skip(skip)
+      .limit(Number(limit));
+
+    // total documents
+    const totalHotels = await Hotel.countDocuments(query);
+
+    res.status(200).json({
+      currentPage: Number(page),
+      totalPages: Math.ceil(totalHotels/limit),
+      totalHotels,
+      hotels,
+    });
     
   } catch (error) {
     console.log(error);
