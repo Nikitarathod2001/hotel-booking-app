@@ -1,15 +1,27 @@
 import Hotel from "../models/Hotel.js";
+import cloudinary from "../config/cloudinary.js";
 
 
 // Create Hotel
 export const createHotel = async (req, res) => {
   try {
 
-    const {name, location, description, pricePerNight, image, amenities} = req.body;
+    const {name, location, description, pricePerNight, amenities} = req.body;
+
+    const result = await cloudinary.uploader.upload(
+      req.file.path,
+      {
+        folder: "hotel-booking-app"
+      }
+    );
 
     const newHotel = await Hotel({
-      name, location, description, pricePerNight, image, 
-      amenities,
+      name, location, description, pricePerNight, 
+      amenities: 
+        typeof amenities === "string" 
+        ? JSON.parse(amenities)
+        : amenities,
+      image: result.secure_url,
       createdBy: req.user._id
     });
 
