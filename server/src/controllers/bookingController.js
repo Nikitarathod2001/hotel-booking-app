@@ -20,6 +20,39 @@ export const createBooking = async (req, res) => {
     // Calculate days
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
+
+    // Validate dates
+    if(checkIn >= checkOut) {
+      return res.status(400).json({
+        message: "Check-out date must be after check-in date"
+      });
+    }
+
+    // Check overlapping bookings
+    const existingBooking = await Booking.findOne({
+      hotel: hotelId,
+      bookingStatus: "confirmed",
+      $or: [
+        {
+          checkInDate: {
+            $lt: checkOut,
+          },
+
+          checkOutDate: {
+            $gt: checkIn,
+          },
+        },
+      ],
+    });
+
+    // If booking conflict exists
+    if(existingBooking) {
+      return res.status(400).json({
+        message: "Hotel is already booked for selected dates"
+      });
+    }
+
+    // Calculate total days
     const totalDays = (checkOut - checkIn) / (1000 * 60 * 60 *24);
 
     // Total price
