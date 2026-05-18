@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {loginUser} from "../services/authService";
 import toast from "react-hot-toast";
+import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
 
@@ -10,6 +11,9 @@ const LoginPage = () => {
   });
 
   const [loading, setLoading] = useState(false);
+
+  const {login} = useAuth();
+
 
   const handleChange = (e) => {
     setFormData({
@@ -27,7 +31,7 @@ const LoginPage = () => {
 
       const data = await loginUser(formData);
 
-      console.log(data);
+      login(data.user, data.token);
       toast.success("Login Successful");
 
       setFormData({
