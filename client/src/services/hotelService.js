@@ -7,3 +7,11 @@ export const getAllHotels = async () => {
 
   return response.data;
 };
+
+
+// Get Single Hotel
+export const getHotelById = async (hotelId) => {
+  const response = await api.get(`/hotels/${hotelId}`);
+
+  return response.data;
+};

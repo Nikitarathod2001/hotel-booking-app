@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 
 const HotelCard = ({hotel}) => {
   return (
@@ -18,6 +21,10 @@ const HotelCard = ({hotel}) => {
 
       <p>&#8377;{hotel.pricePerNight} / night</p>
       <p>{hotel.description}</p>
+
+      <Link to={`/hotels/${hotel._id}`}>
+        View Details
+      </Link>
     </div>
   )
 }
