@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {loginUser} from "../services/authService";
 import toast from "react-hot-toast";
 import { useAuth } from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const LoginPage = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -12,7 +16,12 @@ const LoginPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const {login} = useAuth();
+  const {user, login} = useAuth();
+
+  // Redirect if already logged in
+  if(user) {
+    navigate("/");
+  }
 
 
   const handleChange = (e) => {
@@ -38,6 +47,8 @@ const LoginPage = () => {
         email: "",
         password: ""
       });
+
+      navigate("/");
       
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
@@ -45,6 +56,12 @@ const LoginPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if(user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <div>
@@ -68,6 +85,13 @@ const LoginPage = () => {
           }
         </button>
       </form>
+
+      <p>
+        Don't have an account?
+      </p>
+      <Link to="/register">
+        Register Here
+      </Link>
     </div>
   )
 }
