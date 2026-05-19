@@ -25,9 +25,13 @@ export const registerUser = async (req, res) => {
 
     const user = await User.findOne({email}).select("-password");
 
+    // Generate token
+    const token = generateToken(user._id);
+
     res.status(201).json({
       message: "User registered successfully",
       user,
+      token
     });
     
   } catch (error) {
