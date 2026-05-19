@@ -95,6 +95,8 @@ const HotelDetailsPage = () => {
     return <p>Hotel not found</p>;
   }
 
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <div>
       <img src={hotel.image} alt={hotel.name} width="400" />
@@ -117,6 +119,7 @@ const HotelDetailsPage = () => {
             name='checkInDate'
             value={bookingData.checkInDate}
             onChange={handleChange}
+            min={today}
             required
           />
         </div>
@@ -128,6 +131,7 @@ const HotelDetailsPage = () => {
             name='checkOutDate'
             value={bookingData.checkOutDate}
             onChange={handleChange}
+            min={bookingData.checkInDate || today}
             required
           />
         </div>
