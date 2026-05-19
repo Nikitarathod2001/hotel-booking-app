@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import PaymentButton from './PaymentButton';
+
 
 const BookingCard = ({booking}) => {
   return (
@@ -31,6 +33,12 @@ const BookingCard = ({booking}) => {
       <p>
         Status:{" "}{booking.bookingStatus}
       </p>
+
+      {
+        booking.paymentStatus === "pending" && (
+          <PaymentButton bookingId={booking._id}/>
+        )
+      }
     </div>
   )
 }

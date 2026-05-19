@@ -3,13 +3,14 @@ import stripe from "../config/stripe.js";
 import Booking from "../models/Booking.js";
 
 
-export const createPaymentIntent = async (req, res) => {
+export const createCheckoutSession = async (req, res) => {
   try {
 
     const {bookingId} = req.body;
 
     // Find booking
-    const booking = await Booking.findById(bookingId);
+    const booking = await Booking.findById(bookingId).populate("hotel");
+
 
     if(!booking) {
       return res.status(404).json({
@@ -17,20 +18,40 @@ export const createPaymentIntent = async (req, res) => {
       });
     }
 
-    // Amount in paise/cents
-    const amount = booking.totalPrice * 100;
+    // Create stripe checkout session
+    const session = await stripe.checkout.sessions.create(
+      {
+        payment_method_types: ["card"],
 
-    // Create payment intent
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency: "inr",
-      metadata: {
-        bookingId: booking._id.toString(),
-      },
-    });
+        mode: "payment",
+
+        line_items: [
+          {
+            price_data: {
+              currency: "inr",
+
+              product_data: {
+                name: booking.hotel.name,
+              },
+
+              unit_amount: booking.totalPrice * 100,
+            },
+
+            quantity: 1,
+          },
+        ],
+
+        success_url: "http://localhost:5173/payment-success",
+        cancel_url: "http://localhost:5173/payment-cancel",
+
+        metadata: {
+          bookingId: booking._id.toString(),
+        },
+      }
+    );
 
     res.status(200).json({
-      clientSecret: paymentIntent.client_secret,
+      url: session.url,
     });
     
   } catch (error) {
