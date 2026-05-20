@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -15,6 +16,10 @@ const Navbar = () => {
         user ? (
           <>
             <p>Welcome, {user.name}</p>
+
+            <Link to="/wishlist">
+              Wishlist
+            </Link>
 
             <button onClick={logout}>
               Logout

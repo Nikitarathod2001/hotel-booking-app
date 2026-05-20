@@ -1,9 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { toggleWishlist } from '../services/wishlistService';
+import toast from 'react-hot-toast';
 
 
 
 const HotelCard = ({hotel}) => {
+
+  const [wishlistLoading, setWishlistLoading] = useState(false);
+
+  const handleWishlist = async () => {
+    try {
+
+      setWishlistLoading(true);
+
+      const data = await toggleWishlist(hotel._id);
+
+      toast.success(data.message);
+      
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Wishlist failed");
+    } finally {
+      setWishlistLoading(false);
+    }
+  };
+
   return (
     <div 
       style={{
@@ -25,6 +46,10 @@ const HotelCard = ({hotel}) => {
       <Link to={`/hotels/${hotel._id}`}>
         View Details
       </Link>
+
+      <button onClick={handleWishlist} disabled={wishlistLoading}>
+        Wishlist
+      </button>
     </div>
   )
 }

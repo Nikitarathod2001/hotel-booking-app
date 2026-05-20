@@ -6,6 +6,7 @@ import bookingRouter from "./src/routes/bookingRoute.js";
 import paymentRouter from "./src/routes/paymentRoute.js";
 import webhookRouter from "./src/routes/webhookRoute.js";
 import adminRouter from "./src/routes/adminRoute.js";
+import wishlistRouter from "./src/routes/wishlistRoute.js";
 
 
 const app = express();
@@ -37,6 +38,7 @@ app.use("/api/hotels", hotelRouter);
 app.use("/api/bookings", bookingRouter);
 app.use("/api/payments", paymentRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/wishlist", wishlistRouter);
 
 
 export default app;

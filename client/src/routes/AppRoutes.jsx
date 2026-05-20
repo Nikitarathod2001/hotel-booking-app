@@ -9,6 +9,7 @@ import HotelDetailsPage from "../pages/HotelDetailsPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import PaymentCancelPage from "../pages/PaymentCancelPage";
 import AdminDashboard from "../pages/AdminDashboard";
+import WishlistPage from "../pages/WishlistPage";
 
 
 const AppRoutes = () => {
@@ -23,6 +24,7 @@ const AppRoutes = () => {
         <Route path="/payment-success" element={<PaymentSuccessPage/>}/>
         <Route path="/payment-cancel" element={<PaymentCancelPage/>}/>
         <Route path="/admin" element={<AdminDashboard/>}/>
+        <Route path="/wishlist" element={<WishlistPage/>}/>
       </Routes>
     </BrowserRouter>
   )
