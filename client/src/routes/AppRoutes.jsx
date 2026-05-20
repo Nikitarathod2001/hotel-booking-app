@@ -6,6 +6,8 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import BookingsPage from "../pages/BookingsPage";
 import HotelDetailsPage from "../pages/HotelDetailsPage";
+import PaymentSuccessPage from "../pages/PaymentSuccessPage";
+import PaymentCancelPage from "../pages/PaymentCancelPage";
 
 
 const AppRoutes = () => {
@@ -17,6 +19,8 @@ const AppRoutes = () => {
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/bookings" element={<BookingsPage/>}/>
         <Route path="/hotels/:id" element={<HotelDetailsPage/>}/>
+        <Route path="/payment-success" element={<PaymentSuccessPage/>}/>
+        <Route path="/payment-cancel" element={<PaymentCancelPage/>}/>
       </Routes>
     </BrowserRouter>
   )

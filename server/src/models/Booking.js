@@ -34,9 +34,14 @@ const bookingSchema = new mongoose.Schema({
     required: true
   },
 
+  isPaid: {
+    type: Boolean,
+    default: false
+  },
+
   paymentStatus: {
     type: String,
-    enum: ["pending", "paid"],
+    enum: ["pending", "paid", "failed"],
     default: "pending"
   },
 
@@ -45,6 +50,10 @@ const bookingSchema = new mongoose.Schema({
     enum: ["confirmed", "cancelled"],
     default: "confirmed"
   },
+
+  paymentIntentId: {
+    type: String
+  }
 
 }, {timestamps: true});
 

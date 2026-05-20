@@ -35,7 +35,7 @@ const BookingCard = ({booking}) => {
       </p>
 
       {
-        booking.paymentStatus === "pending" && (
+        !booking.isPaid && (
           <PaymentButton bookingId={booking._id}/>
         )
       }
