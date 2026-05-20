@@ -48,62 +48,53 @@ export const getHotels = async (req, res) => {
     // Destructure query params
     const {
       search,
+      location,
       minPrice,
       maxPrice,
-      sort,
-      order,
       page = 1,
-      limit = 5,
+      limit = 10,
     } = req.query;
 
-    // query object
+    // dynamic query
     const query = {};
 
-    // search by name or location
-    if(search) {
-      query.$or = [
-        {
-          name: {
-            $regex: search,
-            $options: "i",
-          },
-        },
-        {
-          location: {
-            $regex: search,
-            $options: "i",
-          },
-        },
-      ];
+    // Search by hotel name
+    if(search && search.trim() !== "") {
+      query.name = {
+        $regex: search,
+        $options: "i",
+      };
     }
 
-    // price filtering
-    if(minPrice || maxPrice) {
-      query.pricePerNight = {};
-
-      if(minPrice) {
-        query.pricePerNight.$gte = Number(minPrice);
-      }
-
-      if(maxPrice) {
-        query.pricePerNight.$lte = Number(maxPrice);
-      }
+    // Search by location
+    if(location && location.trim() !== "") {
+      query.location = {
+        $regex: location,
+        $options: "i",
+      };
     }
 
-    // sorting object
-    let sortOption = {};
+    // Minimum price
+    if(minPrice !== undefined && minPrice !== "") {
+      query.pricePerNight = {
+        ...query.pricePerNight,
+        $gte: Number(minPrice),
+      };
+    }
 
-    if(sort) {
-      sortOption[sort] = order === "desc" ? -1 : 1;
+    // Maximum price
+    if(maxPrice !== undefined && maxPrice !== "") {
+      query.pricePerNight = {
+        ...query.pricePerNight,
+        $lte: Number(maxPrice),
+      };
     }
 
     // pagination
-    const skip = (page - 1) * limit;
+    const skip = (Number(page) - 1) * Number(limit);
 
     // fetch hotels
     const hotels = await Hotel.find(query)
-      .populate("createdBy", "name email")
-      .sort(sortOption)
       .skip(skip)
       .limit(Number(limit));
 
@@ -111,10 +102,11 @@ export const getHotels = async (req, res) => {
     const totalHotels = await Hotel.countDocuments(query);
 
     res.status(200).json({
-      currentPage: Number(page),
-      totalPages: Math.ceil(totalHotels/limit),
-      totalHotels,
       hotels,
+
+      totalPages: Math.ceil(totalHotels / limit),
+
+      currentPage: Number(page),
     });
     
   } catch (error) {

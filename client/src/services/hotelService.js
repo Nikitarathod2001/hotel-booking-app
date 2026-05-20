@@ -2,8 +2,8 @@ import api from "./api";
 
 
 // Get All Hotels
-export const getAllHotels = async () => {
-  const response = await api.get("/hotels");
+export const getAllHotels = async (params) => {
+  const response = await api.get("/hotels", {params});
 
   return response.data;
 };
