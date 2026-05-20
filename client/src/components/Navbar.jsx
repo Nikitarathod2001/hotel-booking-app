@@ -17,9 +17,17 @@ const Navbar = () => {
           <>
             <p>Welcome, {user.name}</p>
 
-            <Link to="/wishlist">
-              Wishlist
-            </Link>
+            <p>
+              <Link to="/wishlist">
+                Wishlist
+              </Link>
+            </p>
+
+            <p>
+              <Link to="/bookings">
+                My Bookings
+              </Link>
+            </p>
 
             <button onClick={logout}>
               Logout
