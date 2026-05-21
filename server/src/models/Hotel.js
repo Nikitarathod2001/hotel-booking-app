@@ -34,7 +34,7 @@ const hotelSchema = new mongoose.Schema({
     default: []
   },
 
-  rating: {
+  averageRating: {
     type: Number,
     default: 0
   },

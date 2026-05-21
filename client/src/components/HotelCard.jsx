@@ -50,6 +50,10 @@ const HotelCard = ({hotel}) => {
       <button onClick={handleWishlist} disabled={wishlistLoading}>
         Wishlist
       </button>
+
+      <p>
+        Rating: {" "}{hotel.averageRating?.toFixed(1)}
+      </p>
     </div>
   )
 }

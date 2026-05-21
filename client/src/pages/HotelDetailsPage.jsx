@@ -4,6 +4,8 @@ import { getHotelById } from '../services/hotelService';
 import toast from 'react-hot-toast';
 import { createBooking } from '../services/bookingService';
 import { useAuth } from '../context/AuthContext';
+import { getHotelReviews } from '../services/reviewService';
+import ReviewForm from "../components/ReviewForm";
 
 
 const HotelDetailsPage = () => {
@@ -21,6 +23,9 @@ const HotelDetailsPage = () => {
     checkOutDate: "",
     totalGuests: 1,
   });
+
+  const [reviews, setReviews] = useState([]);
+
 
   // Fetch Hotel
   useEffect(() => {
@@ -41,6 +46,7 @@ const HotelDetailsPage = () => {
     };
 
     fetchHotel();
+    fetchReviews();
   }, [id]);
 
 
@@ -84,6 +90,20 @@ const HotelDetailsPage = () => {
       toast.error(error.response?.data?.message || "Booking failed");
     } finally {
       setLoading(false);
+    }
+  };
+
+
+  // Fetch reviews
+  const fetchReviews = async () => {
+    try {
+
+      const data = await getHotelReviews(id);
+      setReviews(data);
+      
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data?.message || "Fetch review failed");
     }
   };
 
@@ -154,6 +174,26 @@ const HotelDetailsPage = () => {
           }
         </button>
       </form>
+
+      <ReviewForm hotelId={id}
+        onReviewAdded={fetchReviews}
+      />
+
+      <h2>Reviews</h2>
+      {
+        reviews.length === 0 ? (
+          <p>No reviews yet</p>
+        ) : (
+          reviews.map((review) => (
+            <div key={review._id}>
+              <h4>{review.user.name}</h4>
+              <p>Rating: {" "}{review.rating}</p>
+              <p>{review.comment}</p>
+              <hr />
+            </div>
+          ))
+        )
+      }
     </div>
   )
 }
