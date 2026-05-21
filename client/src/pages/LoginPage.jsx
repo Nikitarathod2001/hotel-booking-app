@@ -64,34 +64,82 @@ const LoginPage = () => {
   }, [user, navigate]);
 
   return (
-    <div>
-      <h1>Login Page</h1>
+    <div className='min-h-screen bg-slate-50 flex items-center justify-center px-auto'>
 
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" 
-          placeholder='Enter email'
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input type="password" name="password" 
-          placeholder='Enter password'
-          value={formData.password}
-          onChange={handleChange}
-        />
+      <div className='w-full max-w-md bg-white rounded-3xl shadow-xl border border-slate-200 px-10 py-4'>
 
-        <button type='submit' disabled={loading}>
-          {
-            loading ? "Loading..." : "Login"
-          }
-        </button>
-      </form>
+        <div className='mb-8 text-center'>
 
-      <p>
-        Don't have an account?
-      </p>
-      <Link to="/register">
-        Register Here
-      </Link>
+          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+            Welcome Back
+          </h1>
+
+          <p className='text-slate-500'>
+            Login to continue booking amazing hotels
+          </p>
+
+        </div>
+
+        <form onSubmit={handleSubmit} className='space-y-5'>
+
+          <div>
+
+            <label className='block text-sm font-medium text-slate-700'>
+              Email Address
+            </label>
+
+            <input type="email" 
+              name='email'
+              placeholder='Enter your email'
+              value={formData.email}
+              onChange={handleChange}
+              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+            />
+
+          </div>
+
+          <div>
+
+            <label className='block text-sm font-medium text-slate-700'>
+              Password
+            </label>
+
+            <input type="password" 
+              name='password'
+              placeholder='Enter your password'
+              value={formData.password}
+              onChange={handleChange}
+              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+            />
+
+          </div>
+
+          <button type='submit' disabled={loading}
+            className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-semibold transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          >
+            {
+              loading ? "Logging in..." : "Login"
+            }
+          </button>
+
+        </form>
+
+        <div className='mt-6 text-center'>
+          
+          <p className='text-slate-600'>
+            Don't have an account?
+          </p>
+
+          <Link to="/register"
+            className='inline-block mt-2 text-slate-900 font-semibold hover:underline'
+          >
+            Register Here
+          </Link>
+
+        </div>
+
+      </div>
+
     </div>
   )
 }
