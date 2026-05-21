@@ -26,34 +26,73 @@ const HotelCard = ({hotel}) => {
   };
 
   return (
-    <div 
-      style={{
-        border: "1px solid gray",
-        padding: "1rem",
-        marginBottom: "1rem"
-      }}
-    >
-      <img src={hotel.image} alt={hotel.name} 
-        width="250"
-      />
+    <div className='bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition duration-300 group'>
+      <div className='overflow-hidden'>
+        <img src={hotel.image} alt={hotel.name} 
+          className='w-full h-64 object-cover group-hover:scale-105 transition duration-500'
+        />
+      </div>
 
-      <h2>{hotel.name}</h2>
-      <p>{hotel.location}</p>
+      <div className='p-6'>
+        <div className='flex items-start justify-between gap-4 mb-3'>
+          <div>
+            <h2 className='text-2xl font-bold text-slate-900'>
+              {hotel.name}
+            </h2>
+            <p className='text-slate-500'>
+              {hotel.location}
+            </p>
+          </div>
 
-      <p>&#8377;{hotel.pricePerNight} / night</p>
-      <p>{hotel.description}</p>
+          <div className='bg-slate-100 text-slate-800 px-3 py-1 rounded-xl text-sm font-semibold whitespace-nowrap'>
+            ⭐
+            {" "}
+            {
+              hotel.averageRating?.toFixed(1) || "0.0"
+            }
+          </div>
+        </div>
 
-      <Link to={`/hotels/${hotel._id}`}>
-        View Details
-      </Link>
+        <p className='text-slate-600 leading-relaxed mb-5 line-clamp-3'>
+          {hotel.description}
+        </p>
 
-      <button onClick={handleWishlist} disabled={wishlistLoading}>
-        Wishlist
-      </button>
+        <div className='flex items-center justify-between gap-4'>
+          
+          <div>
 
-      <p>
-        Rating: {" "}{hotel.averageRating?.toFixed(1)}
-      </p>
+            <p className='text-2xl font-bold text-slate-900'>
+              &#8377;
+              {hotel.pricePerNight}
+            </p>
+
+            <span className='text-slate-500 text-sm'>
+              per night
+            </span>
+
+          </div>
+
+          <div className='flex items-center gap-3'>
+
+            <button onClick={handleWishlist}
+              disabled={wishlistLoading}
+              className='border border-slate-300 hover:border-slate-900 hover:text-white px-4 py-2 rounded-xl font-medium transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+            >
+              {
+                wishlistLoading ? "Adding..." : "Wishlist"
+              }
+            </button>
+
+            <Link to={`/hotels/${hotel._id}`}
+              className='bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl font-medium transition duration-200'
+            >
+              View Details
+            </Link>
+
+          </div>
+
+        </div>
+      </div>
     </div>
   )
 }
