@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from '../services/api';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
 
@@ -45,6 +46,10 @@ const AdminDashboard = () => {
       <p>Total Bookings: {" "}{stats.totalBookings}</p>
       <p>Total Users: {" "}{stats.totalUsers}</p>
       <p>Revenue: {" "}&#8377;{stats.totalRevenue}</p>
+
+      <Link to="/admin/hotels">
+        Manage Hotels
+      </Link>
     </div>
   )
 }

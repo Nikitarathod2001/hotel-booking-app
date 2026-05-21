@@ -15,7 +15,7 @@ export const createHotel = async (req, res) => {
       }
     );
 
-    const newHotel = await Hotel({
+    const newHotel = new Hotel({
       name, location, description, pricePerNight, 
       amenities: 
         typeof amenities === "string" 
