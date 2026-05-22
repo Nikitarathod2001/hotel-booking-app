@@ -66,43 +66,101 @@ const RegisterPage = () => {
   }, [user, navigate]);
 
   return (
-    <div>
-      <h1>Register Page</h1>
+    <div className='min-h-screen bg-slate-50 flex items-center justify-center px-4'>
 
-      <form onSubmit={handleSubmit}>
-        <input type="text" 
-          name='name'
-          placeholder='Enter name'
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input type="email" 
-          name='email'
-          placeholder='Enter email'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input type="password" 
-          name='password'
-          placeholder='Enter password'
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+      <div className='w-full max-w-md bg-white rounded-3xl shadow-xl border border-slate-200 p-8'>
 
-        <button type='submit' disabled={loading}>
-          {
-            loading ? "Loading..." : "Register"
-          }
-        </button>
-      </form>
+        <div className='mb-8 text-center'>
 
-      <p>Already have an account?</p>
-      <Link to="/login">
-          Login Here
-      </Link>
+          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+            Create Account
+          </h1>
+
+          <p className='text-slate-500'>
+            Join us and start booking your dream stays
+          </p>
+
+        </div>
+
+        <form onSubmit={handleSubmit} className='space-y-5'>
+
+          <div>
+
+            <label className='block text-sm font-medium text-slate-700 mb-2'>
+              Full Name
+            </label>
+
+            <input type="text" 
+              name='name'
+              placeholder='Enter your name'
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+            />
+
+          </div>
+
+          <div>
+
+            <label className='block text-sm font-medium text-slate-700 mb-2'>
+              Email Address
+            </label>
+
+            <input type="text" 
+              name='email'
+              placeholder='Enter your email'
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+            />
+
+          </div>
+
+          <div>
+
+            <label className='block text-sm font-medium text-slate-700 mb-2'>
+              Password
+            </label>
+
+            <input type="text" 
+              name='password'
+              placeholder='Enter your password'
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+            />
+
+          </div>
+
+          <button type='submit' disabled={loading}
+            className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-semibold transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+          >
+            {
+              loading ? "Creating account..." : "Register"
+            }
+          </button>
+
+        </form>
+
+        <div className='mt-6 text-center'>
+
+          <p className='text-slate-600'>
+            Already have an account?
+          </p>
+
+          <Link to="/login"
+            className='inline-block mt-2 text-slate-900 font-semibold hover:underline'
+          >
+            Login Here
+          </Link>
+
+        </div>
+
+      </div>
+
     </div>
   )
 }
