@@ -39,17 +39,99 @@ const AdminDashboard = () => {
   }
 
   return stats && (
-    <div>
-      <h1>Admin Dashboard</h1>
+    <div className='min-h-screen bg-slate-50'>
 
-      <p>Total Hotels: {" "}{stats.totalHotels}</p>
-      <p>Total Bookings: {" "}{stats.totalBookings}</p>
-      <p>Total Users: {" "}{stats.totalUsers}</p>
-      <p>Revenue: {" "}&#8377;{stats.totalRevenue}</p>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
 
-      <Link to="/admin/hotels">
-        Manage Hotels
-      </Link>
+        <div className='mb-10'>
+
+          <h1 className='text-4xl font-bold text-slate-900'>
+            Admin Dashboard
+          </h1>
+
+          <p className='text-slate-600 text-lg'>
+            Monitor platform performance and manage hotels.
+          </p>
+
+        </div>
+
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10'>
+
+          <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-6'>
+
+            <p className='text-slate-500 text-sm mb-2'>
+              Total Hotels
+            </p>
+
+            <h2 className='text-4xl font-bold text-slate-900'>
+              {stats.totalHotels}
+            </h2>
+
+          </div>
+
+          <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-6'>
+
+            <p className='text-slate-500 text-sm mb-2'>
+              Total Bookings
+            </p>
+
+            <h2 className='text-4xl font-bold text-slate-900'>
+              {stats.totalBookings}
+            </h2>
+
+          </div>
+
+          <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-6'>
+
+            <p className='text-slate-500 text-sm mb-2'>
+              Total Users
+            </p>
+
+            <h2 className='text-4xl font-bold text-slate-900'>
+              {stats.totalUsers}
+            </h2>
+
+          </div>
+
+          <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-6'>
+
+            <p className='text-slate-500 text-sm mb-2'>
+              Total Revenue
+            </p>
+
+            <h2 className='text-4xl font-bold text-slate-900'>
+              &#8377;
+              {stats.totalRevenue}
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5'>
+
+          <div>
+
+            <h2 className='text-2xl font-bold text-slate-900 mb-2'>
+              Hotel Management
+            </h2>
+
+            <p className='text-slate-600'>
+              Create, update, and manage hotel listings.
+            </p>
+
+          </div>
+
+          <Link to="/admin/hotels"
+            className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+          >
+            Manage Hotels
+          </Link>
+
+        </div>
+
+      </div>
+
     </div>
   )
 }
