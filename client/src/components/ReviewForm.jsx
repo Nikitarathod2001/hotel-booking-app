@@ -47,29 +47,82 @@ const ReviewForm = ({hotelId, onReviewAdded}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <select name='rating'
-        value={formData.rating}
-        onChange={handleChange}
+    <form onSubmit={handleSubmit}
+      className='bg-slate-50 border border-slate-200 rounded-3xl p-6 space-y-5'
+    >
+
+      <div>
+
+        <h3 className='text-2xl font-bold text-slate-900 mb-2'>
+          Write a Review
+        </h3>
+
+        <p className='text-slate-500'>
+          Share your experience with other guests.
+        </p>
+
+      </div>
+
+      <div>
+
+        <label className='block text-sm font-medium text-slate-700 mb-2'>
+          Rating
+        </label>
+
+        <select name='rating'
+          value={formData.rating}
+          onChange={handleChange}
+          className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+        >
+
+          <option value="1">
+            ⭐ 1 - Poor
+          </option>
+
+          <option value="2">
+            ⭐⭐ 2 - Fair
+          </option>
+
+          <option value="3">
+            ⭐⭐⭐ 3 - Good
+          </option>
+
+          <option value="4">
+            ⭐⭐⭐⭐ 4 - Very Good
+          </option>
+
+          <option value="5">
+            ⭐⭐⭐⭐⭐ 5 - Excellent
+          </option>
+
+        </select>
+
+      </div>
+
+      <div>
+
+        <label className='block text-sm font-medium text-slate-700 mb-2'>
+          Review
+        </label>
+
+        <textarea name='comment'
+          placeholder='Write your experience'
+          value={formData.comment}
+          onChange={handleChange}
+          rows={5}
+          className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 resize-none'
+        />
+
+      </div>
+
+      <button type='submit' disabled={loading}
+        className='w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-semibold text-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
       >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-
-      <textarea name='comment'
-        placeholder='Write review'
-        value={formData.comment}
-        onChange={handleChange}
-      />
-
-      <button type='submit' disabled={loading}>
         {
-          loading ? "Adding..." : "Add Review"
+          loading ? "Adding Review..." : "Add Review"
         }
       </button>
+
     </form>
   )
 }
