@@ -60,39 +60,119 @@ const AdminHotelsPage = () => {
   }
 
   return (
-    <div>
-      <h1>Manage Hotels</h1>
+    <div className='min-h-screen bg-slate-50'>
 
-      <Link to="/admin/create-hotel">
-        Add Hotel
-      </Link>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
 
-      {
-        hotels.length === 0 ? (
-          <p>No hotels found</p>
-        ) : (
-          hotels.map((hotel) => (
-            <div key={hotel._id}>
-              <img src={hotel.image} alt={hotel.name} width="200" />
+        <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-10'>
 
-              <h3>{hotel.name}</h3>
+          <div>
 
-              <p>{hotel.location}</p>
+            <h1 className='text-4xl font-bold text-slate-900 mb-2'>
+              Manage Hotels
+            </h1>
 
-              <p>&#8377;{hotel.pricePerNight}</p>
+            <p className='text-slate-600 text-lg'>
+              Create, edit, and manage hotel listings
+            </p>
 
-              <Link to={`/admin/update-hotel/${hotel._id}`}>
-                Edit
+          </div>
+
+          <Link to="/admin/create-hotel"
+            className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+          >
+            Add Hotel
+          </Link>
+
+        </div>
+
+        {
+          hotels.length === 0 ? (
+            <div className='bg-white rounded-3xl border border-slate-200 shadow-sm p-12 text-center'>
+
+              <h2 className='text-2xl font-bold text-slate-900 mb-3'>
+                No Hotels Found
+              </h2>
+
+              <p className='text-slate-600 mb-6'>
+                Start by creating your first hotel listing.
+              </p>
+
+              <Link to="/admin/create-hotel"
+                className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+              >
+                Create Hotel
               </Link>
 
-              <button onClick={() => handleDelete(hotel._id)}>
-                Delete
-              </button>
-              <hr />
             </div>
-          ))
-        )
-      }
+          ) : (
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8'>
+
+              {
+                hotels.map((hotel) => (
+                  <div key={hotel._id}
+                    className='bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition duration-300'
+                  >
+
+                    <div className='overflow-hidden'>
+
+                      <img src={hotel.image} alt={hotel.name} 
+                        className='w-full h-60 object-cover hover:scale-105 transition duration-500'
+                      />
+
+                    </div>
+
+                    <div className='p-6'>
+
+                      <div className='mb-5'>
+
+                        <h3 className='text-2xl font-bold text-slate-900 mb-2'>
+                          {hotel.name}
+                        </h3>
+
+                        <p className='text-slate-500 mb-3'>
+                          {hotel.location}
+                        </p>
+
+                        <p className='text-2xl font-bold text-slate-900'>
+                          &#8377;
+                          {hotel.pricePerNight}
+
+                          <span className='text-sm text-slate-500 font-normal ml-1'>
+                            / night
+                          </span>
+                        </p>
+
+                      </div>
+
+                      <div className='flex items-center gap-3'>
+
+                        <Link to={`/admin/update-hotel/${hotel._id}`}
+                          className='flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-semibold transition duration-200'
+                        >
+                          Edit
+                        </Link>
+
+                        <button onClick={() => handleDelete(hotel._id)}
+                          className='flex-1 border border-red-300 text-red-600 hover:bg-red-50 py-3 rounded-2xl font-semibold transition duration-200'  
+                        >
+                          Delete
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                ))
+              }
+
+            </div>
+          )
+        }
+
+      </div>
+
     </div>
   )
 }
