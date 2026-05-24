@@ -18,7 +18,9 @@ const PaymentButton = ({bookingId}) => {
   };
 
   return (
-    <button onClick={handlePayment}>
+    <button onClick={handlePayment}
+      className='w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold text-base transition duration-200 shadow-sm hover:shadow-lg active:scale-[0.98]'
+    >
       Pay Now
     </button>
   )
