@@ -72,14 +72,15 @@ const HotelCard = ({hotel}) => {
 
           </div>
 
-          <div className='flex items-center gap-3'>
+          <div className='flex items-center gap-5'>
 
             <button onClick={handleWishlist}
               disabled={wishlistLoading}
-              className='border border-slate-300 hover:border-slate-900 hover:text-white px-4 py-2 rounded-xl font-medium transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='text-3xl text-transparent  [-webkit-text-stroke:2px_red]
+               hover:text-red-500 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {
-                wishlistLoading ? "Adding..." : "Wishlist"
+                wishlistLoading ? "..." : "♥"
               }
             </button>
 
