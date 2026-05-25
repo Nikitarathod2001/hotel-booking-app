@@ -104,7 +104,7 @@ const HomePage = () => {
               placeholder="Search hotel"
               value={formFilters.search}
               onChange={handleChange}
-              className="w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+              className="w-full px-3 rounded-4xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             />
 
             <input
@@ -113,7 +113,7 @@ const HomePage = () => {
               placeholder="Location"
               value={formFilters.location}
               onChange={handleChange}
-              className="w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+              className="w-full px-3 rounded-4xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             />
 
             <input
@@ -122,7 +122,7 @@ const HomePage = () => {
               placeholder="Min Price"
               value={formFilters.minPrice}
               onChange={handleChange}
-              className="w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+              className="w-full px-3 rounded-4xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             />
 
             <input
@@ -131,11 +131,11 @@ const HomePage = () => {
               placeholder="Max Price"
               value={formFilters.maxPrice}
               onChange={handleChange}
-              className="w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
+              className="w-full px-3 rounded-4xl border-slate-300 focus:border-slate-500 focus:ring-slate-500"
             />
 
             <button onClick={handleSearch}
-              className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-5 py-3 font-medium transition duration-200"
+              className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-5 py-3 font-medium transition duration-200 cursor-pointer"
             >
               Search
             </button>
