@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
+import  logo from "../assets/logo.png";
 
 
 const Navbar = () => {
 
   const {user, logout} = useAuth();
+
+  const [showMenu, setShowMenu] = useState(false);
 
 
   return (
@@ -16,9 +19,11 @@ const Navbar = () => {
         <div className='flex items-center justify-between h-16'>
           
           <Link to="/"
-            className='text-2xl font-bold text-slate-900 tracking-tight'
+            className='flex items-center'
           >
-            StayFinder
+            <img src={logo} alt="StayFinder Logo" 
+              className='h-20 w-auto object-contain'
+            />
           </Link>
 
           {
@@ -35,20 +40,23 @@ const Navbar = () => {
 
                 </Link>
 
-                <div className='relative group'>
+                <div className='relative'>
 
-                  <div className='w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold text-lg cursor-pointer select-none'>
+                  <div onClick={() => setShowMenu(!showMenu)} 
+                  className='w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold text-lg cursor-pointer select-none'>
                     {
                       user.name.charAt(0).toUpperCase()
                     }
                   </div>
 
-                  <div className='absolute right-0 mt-3 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200'>
+                  <div className={`absolute right-0 mt-3 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-3 transition duration-200 ${
+                    showMenu ? "opacity-100 visible" : "opacity-0 invisible"
+                  }`}>
 
                     <div className='px-4 pb-3 border-b border-slate-100'>
 
                       <p className='text-sm text-slate-500'>
-                        Signed in as
+                        Welcome!
                       </p>
 
                       <p className='font-semibold text-slate-900 truncate'>
