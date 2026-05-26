@@ -85,27 +85,23 @@ const UpdateHotelPage = () => {
   return (
     <div className='min-h-screen bg-slate-50'>
 
-      <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+      <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-5'>
 
-        <div className='mb-10'>
+        <div className='mb-3.5'>
 
-          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+          <h1 className='text-2xl sm:text-3xl font-bold text-slate-900 mb-3 text-center'>
             Update Hotel
           </h1>
 
-          <p className='text-slate-600 text-lg'>
-            Edit hotel details and keep listings updated.
-          </p>
-
         </div>
 
-        <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-8'>
+        <div className='bg-white rounded-3xl shadow-sm border border-slate-200 p-5'>
 
-          <form onSubmit={handleSubmit} className='space-y-6'>
+          <form onSubmit={handleSubmit} className='space-y-6 px-3'>
 
             <div>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Hotel Name
               </label>
 
@@ -114,14 +110,14 @@ const UpdateHotelPage = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder='Enter hotel name'
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
             <div>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Location
               </label>
 
@@ -130,14 +126,14 @@ const UpdateHotelPage = () => {
                 value={formData.location}
                 onChange={handleChange}
                 placeholder='Enter location'
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
             <div>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Description
               </label>
 
@@ -145,16 +141,16 @@ const UpdateHotelPage = () => {
                 name='description'
                 value={formData.description}
                 onChange={handleChange}
-                rows={5}
+                rows={2}
                 placeholder='Update hotel description'
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
             <div>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Price Per Night
               </label>
 
@@ -163,18 +159,18 @@ const UpdateHotelPage = () => {
                 value={formData.pricePerNight}
                 onChange={handleChange}
                 placeholder='Enter price'
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
             <div>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Update Hotel Image
               </label>
 
-              <div className='border-2 border-dashed border-slate-300 rounded-2xl p-6 bg-slate-50'>
+              <div className='border-2 border-dashed border-slate-300 rounded-2xl p-3 bg-slate-50'>
 
                 <input type="file" 
                   onChange={(e) => setImage(e.target.files[0])}
@@ -186,7 +182,7 @@ const UpdateHotelPage = () => {
             </div>
 
             <button type='submit' disabled={loading}
-              className='w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-semibold text-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-semibold text-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {
                 loading ? "Updating Hotel..." : "Update Hotel"
