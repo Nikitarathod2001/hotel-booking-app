@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { getWishlist } from "../services/wishlistService";
 
 
 const AuthContext = createContext();
@@ -8,6 +9,8 @@ export const AuthContextProvider = ({children}) => {
   
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+
+  const [wishlist, setWishlist] = useState([]);
 
   // Load auth from localstorage
   useEffect(() => {
@@ -37,10 +40,31 @@ export const AuthContextProvider = ({children}) => {
 
     setUser(null);
     setToken(null);
+    setWishlist([]);
   };
+
+  useEffect(() => {
+    const fetchWishlist = async () => {
+      try {
+        
+        const response = await getWishlist();
+
+        setWishlist(response.map((hotel) => hotel._id));
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if(token) {
+      fetchWishlist();
+    }
+  }, [token]);
+
 
   const value = {
     user, token, login, logout,
+    wishlist, setWishlist,
   };
 
   return <AuthContext.Provider value={value}>

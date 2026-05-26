@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { toggleWishlist } from '../services/wishlistService';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthContext';
 
 
 
@@ -9,12 +10,20 @@ const HotelCard = ({hotel}) => {
 
   const [wishlistLoading, setWishlistLoading] = useState(false);
 
+  const {wishlist, setWishlist} = useAuth();
+
+  const isWishlisted = wishlist.includes(hotel._id);
+
   const handleWishlist = async () => {
     try {
 
       setWishlistLoading(true);
 
       const data = await toggleWishlist(hotel._id);
+
+      setWishlist(
+        data.wishlist.map((id) => id.toString())
+      );
 
       toast.success(data.message);
       
@@ -76,8 +85,13 @@ const HotelCard = ({hotel}) => {
 
             <button onClick={handleWishlist}
               disabled={wishlistLoading}
-              className='text-3xl text-transparent  [-webkit-text-stroke:2px_red]
-               hover:text-red-500 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              className={`text-3xl transition duration-200
+                ${
+                  isWishlisted ? "text-red-500"
+                  : "text-transparent [-webkit-text-stroke:2px_red]"
+                } 
+                hover:text-red-500 disabled:opacity-50 disabled:cursor-not-allowed
+              `}
             >
               {
                 wishlistLoading ? "..." : "♥"
