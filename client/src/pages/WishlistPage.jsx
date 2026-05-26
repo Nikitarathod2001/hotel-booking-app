@@ -45,10 +45,6 @@ const WishlistPage = () => {
             My Wishlist
           </h1>
 
-          <p className='text-slate-600 text-lg'>
-            Your saved hotels all in one place.
-          </p>
-
         </div>
 
         {
