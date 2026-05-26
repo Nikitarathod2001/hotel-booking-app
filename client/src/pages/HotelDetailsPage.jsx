@@ -195,10 +195,6 @@ const HotelDetailsPage = () => {
                   Reviews
                 </h2>
 
-                <p className='text-slate-500'>
-                  See what guests are saying about this hotel.
-                </p>
-
               </div>
 
               <div className='mb-10'>

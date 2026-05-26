@@ -72,7 +72,7 @@ const ReviewForm = ({hotelId, onReviewAdded}) => {
         <select name='rating'
           value={formData.rating}
           onChange={handleChange}
-          className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+          className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
         >
 
           <option value="1">
@@ -109,8 +109,8 @@ const ReviewForm = ({hotelId, onReviewAdded}) => {
           placeholder='Write your experience'
           value={formData.comment}
           onChange={handleChange}
-          rows={5}
-          className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 resize-none'
+          rows={3}
+          className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
         />
 
       </div>
