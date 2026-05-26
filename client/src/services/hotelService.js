@@ -18,7 +18,7 @@ export const getHotelById = async (hotelId) => {
 
 
 // Add Hotel
-export const createHotel = async (hotelData) => {
+export const addHotel = async (hotelData) => {
   const response = await api.post("/hotels", hotelData);
 
   return response.data;

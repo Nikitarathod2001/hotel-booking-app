@@ -74,7 +74,7 @@ const AdminHotelsPage = () => {
 
           </div>
 
-          <Link to="/admin/create-hotel"
+          <Link to="/admin/add-hotel"
             className='inline-flex items-center justify-center bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
           >
             Add Hotel

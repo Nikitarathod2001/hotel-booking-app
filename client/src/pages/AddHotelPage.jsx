@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createHotel } from '../services/hotelService';
+import { addHotel } from '../services/hotelService';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,13 +44,13 @@ const AddHotelPage = () => {
         "image", image
       );
 
-      await createHotel(hotelData);
+      await addHotel(hotelData);
 
-      toast.success("Hotel created");
+      toast.success("Hotel added");
       navigate("/admin/hotels");
       
     } catch (error) {
-      toast.error(error.response?.data?.message || "Creation failed");
+      toast.error(error.response?.data?.message || "Failed");
     } finally {
       setLoading(false);
     }
