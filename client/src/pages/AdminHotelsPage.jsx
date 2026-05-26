@@ -72,10 +72,6 @@ const AdminHotelsPage = () => {
               Manage Hotels
             </h1>
 
-            <p className='text-slate-600 text-lg'>
-              Create, edit, and manage hotel listings
-            </p>
-
           </div>
 
           <Link to="/admin/create-hotel"
