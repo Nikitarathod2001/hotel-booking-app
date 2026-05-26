@@ -59,17 +59,13 @@ const CreateHotelPage = () => {
   return (
     <div className='min-h-screen bg-slate-50'>
 
-      <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+      <div className='max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-5'>
 
-        <div className='mb-10'>
+        <div className='mb-4'>
 
-          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
-            Create Hotel
+          <h1 className='text-2xl sm:text-3xl font-bold text-slate-900 mb-3 text-center'>
+            Add New Hotel
           </h1>
-
-          <p className='text-slate-600 text-lg'>
-            Add a new hotel listing to your platform
-          </p>
 
         </div>
 
@@ -77,9 +73,9 @@ const CreateHotelPage = () => {
 
           <form onSubmit={handleSubmit} className='sapce-y-6'>
 
-            <div>
+            <div className='mb-3'>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Hotel Name
               </label>
 
@@ -88,14 +84,14 @@ const CreateHotelPage = () => {
                 placeholder='Enter hotel name'
                 value={formData.name}
                 onChange={handleChange}
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
-            <div>
+            <div className='mb-3'>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Location
               </label>
 
@@ -104,14 +100,14 @@ const CreateHotelPage = () => {
                 placeholder='Enter hotel location'
                 value={formData.location}
                 onChange={handleChange}
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
-            <div>
+            <div className='mb-3'>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Description
               </label>
 
@@ -120,15 +116,15 @@ const CreateHotelPage = () => {
                 placeholder='Write hotel description'
                 value={formData.description}
                 onChange={handleChange}
-                rows={5}
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                rows={2}
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
-            <div>
+            <div className='mb-3'>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Price Per Night
               </label>
 
@@ -137,18 +133,18 @@ const CreateHotelPage = () => {
                 placeholder='Enter price'
                 value={formData.pricePerNight}
                 onChange={handleChange}
-                className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+                className='w-full rounded-2xl px-3 py-3 border border-zinc-400 focus:outline-1'
               />
 
             </div>
 
-            <div>
+            <div className='mb-3'>
 
-              <label className='block text-sm font-medium text-slate-700 mb-2'>
+              <label className='block text-md font-medium text-slate-700 mb-2'>
                 Hotel Image
               </label>
 
-              <div className='border-2 border-dashed border-slate-300 rounded-2xl p-6 bg-slate-50 mb-4'>
+              <div className='border-2 border-dashed border-slate-300 rounded-2xl p-3 bg-slate-50 mb-5'>
 
                 <input type="file" 
                   onChange={(e) => setImage(e.target.files[0])}
@@ -160,10 +156,10 @@ const CreateHotelPage = () => {
             </div>
 
             <button type='submit' disabled={loading}
-              className='w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-semibold text-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-semibold text-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {
-                loading ? "Creating Hotel..." : "Create Hotel"
+                loading ? "Adding Hotel..." : "Add Hotel"
               }
             </button>
 
