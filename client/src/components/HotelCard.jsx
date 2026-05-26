@@ -45,7 +45,7 @@ const HotelCard = ({hotel}) => {
       <div className='p-6'>
         <div className='flex items-start justify-between gap-4 mb-3'>
           <div>
-            <h2 className='text-2xl font-bold text-slate-900'>
+            <h2 className='text-2xl font-bold text-[#001F6B]'>
               {hotel.name}
             </h2>
             <p className='text-slate-500'>
@@ -70,7 +70,7 @@ const HotelCard = ({hotel}) => {
           
           <div>
 
-            <p className='text-2xl font-bold text-slate-900'>
+            <p className='text-2xl font-bold text-[#001F6B]'>
               &#8377;
               {hotel.pricePerNight}
             </p>
@@ -99,7 +99,7 @@ const HotelCard = ({hotel}) => {
             </button>
 
             <Link to={`/hotels/${hotel._id}`}
-              className='bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-xl font-medium transition duration-200'
+              className='bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-5 py-2 rounded-xl font-medium transition duration-200'
             >
               View Details
             </Link>

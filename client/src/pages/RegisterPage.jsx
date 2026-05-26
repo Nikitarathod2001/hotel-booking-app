@@ -72,7 +72,7 @@ const RegisterPage = () => {
 
         <div className='mb-8 text-center'>
 
-          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+          <h1 className='text-4xl font-bold text-[#001F6B] mb-3'>
             Create Account
           </h1>
 
@@ -132,7 +132,7 @@ const RegisterPage = () => {
           </div>
 
           <button type='submit' disabled={loading}
-            className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-xl font-semibold transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='w-full bg-[#1E73FF] hover:bg-[#1E73FF]/80 text-white py-3 rounded-xl font-semibold transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
           >
             {
               loading ? "Creating account..." : "Register"
@@ -148,7 +148,7 @@ const RegisterPage = () => {
           </p>
 
           <Link to="/login"
-            className='inline-block mt-2 text-slate-900 font-semibold hover:underline'
+            className='inline-block mt-2 text-[#001F6B] font-semibold hover:underline'
           >
             Login Here
           </Link>

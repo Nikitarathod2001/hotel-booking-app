@@ -140,7 +140,7 @@ const HotelDetailsPage = () => {
 
                 <div>
 
-                  <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+                  <h1 className='text-4xl font-bold text-[#001F6B] mb-3'>
                     {hotel.name}
                   </h1>
 
@@ -162,7 +162,7 @@ const HotelDetailsPage = () => {
 
               <div className='mb-6'>
 
-                <p className='text-4xl font-bold text-slate-900'>
+                <p className='text-4xl font-bold text-[#4A90FF]'>
                   &#8377;
                   {hotel.pricePerNight}
 
@@ -175,7 +175,7 @@ const HotelDetailsPage = () => {
 
               <div>
 
-                <h2 className='text-2xl font-bold text-slate-900 mb-4'>
+                <h2 className='text-2xl font-bold text-[#001F6B] mb-4'>
                   About This Hotel
                 </h2>
 
@@ -191,7 +191,7 @@ const HotelDetailsPage = () => {
 
               <div className='mb-8'>
 
-                <h2 className='text-3xl font-bold text-slate-900 mb-3'>
+                <h2 className='text-3xl font-bold text-[#001F6B] mb-3'>
                   Reviews
                 </h2>
 
@@ -255,7 +255,7 @@ const HotelDetailsPage = () => {
 
             <div className='sticky top-24 bg-white rounded-3xl shadow-sm border border-slate-200 p-8'>
 
-              <h2 className='text-3xl font-bold text-slate-900 mb-6'>
+              <h2 className='text-3xl font-bold text-[#001F6B] mb-6'>
                 Book This Hotel
               </h2>
 
@@ -313,7 +313,7 @@ const HotelDetailsPage = () => {
                 </div>
 
                 <button type='submit' disabled={loading} 
-                className='w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-semibold text-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+                className='w-full bg-[#1E73FF] hover:bg-[#1E73FF]/80 text-white py-4 rounded-2xl font-semibold text-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
                 >
                   {
                     loading ? "Creating Booking..." : "Book Now"

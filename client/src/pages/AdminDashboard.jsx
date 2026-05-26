@@ -52,12 +52,12 @@ const AdminDashboard = () => {
             Admin Dashboard
           </p>
 
-          <h1 className='text-4xl sm:text-5xl font-bold text-slate-900 leading-tight'>
+          <h1 className='text-4xl sm:text-5xl font-bold text-[#001F6B] leading-tight'>
 
             Welcome back,
             {" "}
 
-            <span className='text-slate-700'>
+            <span className='text-[#1E73FF]'>
               {user.name}
             </span>
 
@@ -122,7 +122,7 @@ const AdminDashboard = () => {
 
           <div>
 
-            <h2 className='text-2xl font-bold text-slate-900 mb-2'>
+            <h2 className='text-2xl font-bold text-[#001F6B] mb-2'>
               Hotel Management
             </h2>
 
@@ -133,7 +133,7 @@ const AdminDashboard = () => {
           </div>
 
           <Link to="/admin/hotels"
-            className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+            className='inline-flex items-center justify-center bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
           >
             Manage Hotels
           </Link>

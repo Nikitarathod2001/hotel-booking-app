@@ -45,7 +45,7 @@ const BookingsPage = () => {
 
         <div className='mb-10'>
 
-          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+          <h1 className='text-4xl font-bold text-[#001F6B] mb-3'>
             My Bookings
           </h1>
 
@@ -55,7 +55,7 @@ const BookingsPage = () => {
           bookings.length === 0 ? (
             <div className='bg-white rounded-3xl border border-slate-200 shadow-sm p-12 text-center'>
 
-              <h2 className='text-2xl font-bold text-slate-900 mb-3'>
+              <h2 className='text-2xl font-bold text-[#001F6B] mb-3'>
                 No Bookings Found
               </h2>
 
@@ -64,7 +64,7 @@ const BookingsPage = () => {
               </p>
 
               <Link to="/"
-                className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+                className='inline-flex items-center justify-center bg-[#1E73FF] hover:bg-[#1E73FF]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
               >
                 Explore Hotels
               </Link>

@@ -85,7 +85,7 @@ const HomePage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Hero Section */}
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#001F6B] mb-4">
             Find Your Perfect Stay
           </h1>
 
@@ -135,7 +135,7 @@ const HomePage = () => {
             />
 
             <button onClick={handleSearch}
-              className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-5 py-3 font-medium transition duration-200 cursor-pointer"
+              className="bg-[#1E73FF] hover:bg-[#1E73FF]/80 text-white rounded-xl px-5 py-3 font-medium transition duration-200 cursor-pointer"
             >
               Search
             </button>
@@ -175,7 +175,7 @@ const HomePage = () => {
                       onClick={() => handlePageChange(index + 1)}
                       className={`px-4 py-2 rounded-xl border transition duration-200 ${
                         appliedFilters.page === index + 1 
-                        ? "bg-slate-900 text-white border-slate-900"
+                        ? "bg-[#001F6B] text-white border-[#001F6B]"
                         : "bg-white text-slate-700 border-slate-300 hover:bg-slate-100"
                       }`}
                     >

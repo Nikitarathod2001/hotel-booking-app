@@ -12,7 +12,7 @@ const PaymentSuccessPage = () => {
           ✓
         </div>
 
-        <h1 className='text-4xl font-bold text-slate-900 mb-4'>
+        <h1 className='text-4xl font-bold text-[#001F6B] mb-4'>
           Payment Successful!
         </h1>
 
@@ -24,7 +24,7 @@ const PaymentSuccessPage = () => {
         <div className='flex flex-col sm:flex-row items-center justify-center gap-4 mt-10'>
 
           <Link to="/bookings"
-            className='w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+            className='w-full sm:w-auto bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
           >
             View My Bookings
           </Link>

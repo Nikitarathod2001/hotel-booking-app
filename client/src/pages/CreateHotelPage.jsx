@@ -63,7 +63,7 @@ const CreateHotelPage = () => {
 
         <div className='mb-4'>
 
-          <h1 className='text-2xl sm:text-3xl font-bold text-slate-900 mb-3 text-center'>
+          <h1 className='text-2xl sm:text-3xl font-bold text-[#001F6B] mb-3 text-center'>
             Add New Hotel
           </h1>
 
@@ -156,7 +156,7 @@ const CreateHotelPage = () => {
             </div>
 
             <button type='submit' disabled={loading}
-              className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-semibold text-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='w-full bg-[#1E73FF] hover:bg-[#1E73FF]/80 text-white py-3 rounded-2xl font-semibold text-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {
                 loading ? "Adding Hotel..." : "Add Hotel"

@@ -22,7 +22,7 @@ const BookingCard = ({booking}) => {
 
             <div>
 
-              <h2 className='text-3xl font-bold text-slate-900 mb-3'>
+              <h2 className='text-3xl font-bold text-[#001F6B] mb-3'>
                 {booking.hotel.name}
               </h2>
 

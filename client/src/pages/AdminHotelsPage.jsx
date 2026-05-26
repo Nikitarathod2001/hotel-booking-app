@@ -68,14 +68,14 @@ const AdminHotelsPage = () => {
 
           <div>
 
-            <h1 className='text-4xl font-bold text-slate-900 mb-2'>
+            <h1 className='text-4xl font-bold text-[#001F6B] mb-2'>
               Manage Hotels
             </h1>
 
           </div>
 
           <Link to="/admin/create-hotel"
-            className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+            className='inline-flex items-center justify-center bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
           >
             Add Hotel
           </Link>
@@ -86,7 +86,7 @@ const AdminHotelsPage = () => {
           hotels.length === 0 ? (
             <div className='bg-white rounded-3xl border border-slate-200 shadow-sm p-12 text-center'>
 
-              <h2 className='text-2xl font-bold text-slate-900 mb-3'>
+              <h2 className='text-2xl font-bold text-[#001F6B] mb-3'>
                 No Hotels Found
               </h2>
 
@@ -97,7 +97,7 @@ const AdminHotelsPage = () => {
               <Link to="/admin/create-hotel"
                 className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
               >
-                Create Hotel
+                Add Hotel
               </Link>
 
             </div>
@@ -122,7 +122,7 @@ const AdminHotelsPage = () => {
 
                       <div className='mb-5'>
 
-                        <h3 className='text-2xl font-bold text-slate-900 mb-2'>
+                        <h3 className='text-2xl font-bold text-[#001F6B] mb-2'>
                           {hotel.name}
                         </h3>
 
@@ -130,7 +130,7 @@ const AdminHotelsPage = () => {
                           {hotel.location}
                         </p>
 
-                        <p className='text-2xl font-bold text-slate-900'>
+                        <p className='text-2xl font-bold text-[#001F6B]'>
                           &#8377;
                           {hotel.pricePerNight}
 
@@ -144,7 +144,7 @@ const AdminHotelsPage = () => {
                       <div className='flex items-center gap-3'>
 
                         <Link to={`/admin/update-hotel/${hotel._id}`}
-                          className='flex-1 text-center bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-2xl font-semibold transition duration-200'
+                          className='flex-1 text-center bg-[#001F6B] hover:bg-[#001F6B]/80 text-white py-3 rounded-2xl font-semibold transition duration-200'
                         >
                           Edit
                         </Link>

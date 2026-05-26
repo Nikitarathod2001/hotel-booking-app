@@ -41,7 +41,7 @@ const WishlistPage = () => {
 
         <div className='mb-10'>
 
-          <h1 className='text-4xl font-bold text-slate-900 mb-3'>
+          <h1 className='text-4xl font-bold text-[#001F6B] mb-3'>
             My Wishlist
           </h1>
 
@@ -55,7 +55,7 @@ const WishlistPage = () => {
                 ❤️
               </div>
 
-              <h2 className='text-2xl font-bold text-slate-900 mb-3'>
+              <h2 className='text-2xl font-bold text-[#001F6B] mb-3'>
                 Your Wishlist is Empty
               </h2>
 
@@ -64,7 +64,7 @@ const WishlistPage = () => {
               </p>
 
               <Link to="/"
-                className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
+                className='inline-flex items-center justify-center bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
               >
                 Explore Hotels
               </Link>

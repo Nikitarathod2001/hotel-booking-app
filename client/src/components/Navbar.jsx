@@ -43,7 +43,7 @@ const Navbar = () => {
                 <div className='relative'>
 
                   <div onClick={() => setShowMenu(!showMenu)} 
-                  className='w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center font-semibold text-lg cursor-pointer select-none'>
+                  className='w-11 h-11 rounded-full bg-[#001F6B] text-white flex items-center justify-center font-semibold text-lg cursor-pointer select-none'>
                     {
                       user.name.charAt(0).toUpperCase()
                     }
@@ -59,7 +59,7 @@ const Navbar = () => {
                         Welcome!
                       </p>
 
-                      <p className='font-semibold text-slate-900 truncate'>
+                      <p className='font-semibold text-[#001F6B] truncate'>
                         {user.name}
                       </p>
 
@@ -86,13 +86,13 @@ const Navbar = () => {
               <div className='flex items-center gap-4'>
 
                 <Link to="/login"
-                  className='text-slate-700 hover:text-slate-900 font-medium transition duration-200'
+                  className='text-[#001F6B]/70 hover:text-[#001F6B] font-medium transition duration-200'
                 >
                   Login
                 </Link>
 
                 <Link to="/register"
-                  className='bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl font-medium transition duration-200'
+                  className='bg-[#001F6B] hover:bg-[#001F6B]/80 text-white px-4 py-2 rounded-xl font-medium transition duration-200'
                 >
                   Register
                 </Link>
