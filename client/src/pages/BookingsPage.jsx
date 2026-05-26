@@ -49,10 +49,6 @@ const BookingsPage = () => {
             My Bookings
           </h1>
 
-          <p className='text-slate-600 text-lg'>
-            View and manage all your hotel bookings.
-          </p>
-
         </div>
 
         {
