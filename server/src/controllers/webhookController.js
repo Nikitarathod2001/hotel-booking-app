@@ -23,21 +23,25 @@ export const stripeWebhook = async (req, res) => {
 
   // Payment success
   if(event.type === "checkout.session.completed") {
-    const session = event.data.object;
+    try {
 
-    const bookingId = session.metadata.bookingId;
+      const session = event.data.object;
+      const bookingId = session.metadata.bookingId;
 
-    // Update booking
-    await Booking.findByIdAndUpdate(
-      bookingId,
-      {
-        isPaid: true,
-        paymentStatus: "paid",
-        paymentIntentId: session.payment_intent,
-      }
-    );
+      await Booking.findByIdAndUpdate(
+        bookingId,
+        {
+          isPaid: true,
+          paymentStatus: "paid",
+          paymentIntentId: session.payment_intent,
+        }
+      );
 
-    console.log("Booking payment updated")
+      console.log("Booking payment updated");
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   res.status(200).json({

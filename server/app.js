@@ -23,8 +23,6 @@ app.use(
   }) 
 );
 
-app.use("/api/webhooks", webhookRouter);
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -39,6 +37,7 @@ app.use("/api/auth", router);
 app.use("/api/hotels", hotelRouter);
 app.use("/api/bookings", bookingRouter);
 app.use("/api/payments", paymentRouter);
+app.use("/api/webhooks", webhookRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use("/api/reviews", reviewRouter);
