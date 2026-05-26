@@ -65,6 +65,15 @@ const Navbar = () => {
 
                     </div>
 
+                    {
+                      user.role === "admin" && 
+                      <Link to="/admin"
+                        className='block px-4 py-3 text-slate-700 hover:bg-slate-100 transition duration-200'
+                      >
+                        Admin Dashboard
+                      </Link>
+                    }
+
                     <Link to="/bookings"
                       className='block px-4 py-3 text-slate-700 hover:bg-slate-100 transition duration-200'
                     >
