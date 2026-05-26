@@ -71,12 +71,8 @@ const LoginPage = () => {
         <div className='mb-8 text-center'>
 
           <h1 className='text-4xl font-bold text-slate-900 mb-3'>
-            Welcome Back
+            Welcome Back!
           </h1>
-
-          <p className='text-slate-500'>
-            Login to continue booking amazing hotels
-          </p>
 
         </div>
 
@@ -84,7 +80,7 @@ const LoginPage = () => {
 
           <div>
 
-            <label className='block text-sm font-medium text-slate-700'>
+            <label className='block text-md font-medium text-slate-700 mb-2'>
               Email Address
             </label>
 
@@ -93,14 +89,14 @@ const LoginPage = () => {
               placeholder='Enter your email'
               value={formData.email}
               onChange={handleChange}
-              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+              className='w-full rounded-xl px-3 py-3 border border-zinc-400 focus:outline-1'
             />
 
           </div>
 
           <div>
 
-            <label className='block text-sm font-medium text-slate-700'>
+            <label className='block text-md font-medium text-slate-700 mb-2'>
               Password
             </label>
 
@@ -109,7 +105,7 @@ const LoginPage = () => {
               placeholder='Enter your password'
               value={formData.password}
               onChange={handleChange}
-              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500 py-3'
+              className='w-full rounded-xl px-3 py-3 border border-zinc-400 focus:outline-1'
             />
 
           </div>
