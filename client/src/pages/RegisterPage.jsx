@@ -76,17 +76,13 @@ const RegisterPage = () => {
             Create Account
           </h1>
 
-          <p className='text-slate-500'>
-            Join us and start booking your dream stays
-          </p>
-
         </div>
 
         <form onSubmit={handleSubmit} className='space-y-5'>
 
           <div>
 
-            <label className='block text-sm font-medium text-slate-700 mb-2'>
+            <label className='block text-md font-medium text-slate-700 mb-2'>
               Full Name
             </label>
 
@@ -96,14 +92,14 @@ const RegisterPage = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+              className='w-full rounded-xl border px-3 py-3 border-zinc-400 focus:outline-1'
             />
 
           </div>
 
           <div>
 
-            <label className='block text-sm font-medium text-slate-700 mb-2'>
+            <label className='block text-md font-medium text-slate-700 mb-2'>
               Email Address
             </label>
 
@@ -113,14 +109,14 @@ const RegisterPage = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+              className='w-full rounded-xl border px-3 py-3 border-zinc-400 focus:outline-1'
             />
 
           </div>
 
           <div>
 
-            <label className='block text-sm font-medium text-slate-700 mb-2'>
+            <label className='block text-md font-medium text-slate-700 mb-2'>
               Password
             </label>
 
@@ -130,7 +126,7 @@ const RegisterPage = () => {
               value={formData.password}
               onChange={handleChange}
               required
-              className='w-full rounded-xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+              className='w-full rounded-xl border px-3 py-3 border-zinc-400 focus:outline-1'
             />
 
           </div>
