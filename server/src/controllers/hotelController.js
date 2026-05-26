@@ -2,8 +2,8 @@ import Hotel from "../models/Hotel.js";
 import cloudinary from "../config/cloudinary.js";
 
 
-// Create Hotel
-export const createHotel = async (req, res) => {
+// Add Hotel
+export const addHotel = async (req, res) => {
   try {
 
     const {name, location, description, pricePerNight, amenities} = req.body;
@@ -28,7 +28,7 @@ export const createHotel = async (req, res) => {
     const hotel = await newHotel.save();
 
     res.status(201).json({
-      message: "Hotel created successfully",
+      message: "Hotel added successfully",
       hotel
     });
     

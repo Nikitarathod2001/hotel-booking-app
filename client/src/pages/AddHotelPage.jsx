@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const CreateHotelPage = () => {
+const AddHotelPage = () => {
 
   const navigate = useNavigate();
 
@@ -173,4 +173,4 @@ const CreateHotelPage = () => {
   )
 }
 
-export default CreateHotelPage
+export default AddHotelPage

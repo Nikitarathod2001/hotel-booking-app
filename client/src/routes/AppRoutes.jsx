@@ -11,7 +11,7 @@ import PaymentCancelPage from "../pages/PaymentCancelPage";
 import AdminDashboard from "../pages/AdminDashboard";
 import WishlistPage from "../pages/WishlistPage";
 import AdminHotelsPage from "../pages/AdminHotelsPage";
-import CreateHotelPage from "../pages/CreateHotelPage";
+import AddHotelPage from "../pages/AddHotelPage";
 import UpdateHotelPage from "../pages/UpdateHotelPage";
 
 
@@ -29,7 +29,7 @@ const AppRoutes = () => {
         <Route path="/admin" element={<AdminDashboard/>}/>
         <Route path="/wishlist" element={<WishlistPage/>}/>
         <Route path="/admin/hotels" element={<AdminHotelsPage/>}/>
-        <Route path="/admin/create-hotel" element={<CreateHotelPage/>}/>
+        <Route path="/admin/add-hotel" element={<AddHotelPage/>}/>
         <Route path="/admin/update-hotel/:id" element={<UpdateHotelPage/>}/>
       </Routes>
     </BrowserRouter>

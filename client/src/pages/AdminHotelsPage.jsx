@@ -94,7 +94,7 @@ const AdminHotelsPage = () => {
                 Start by creating your first hotel listing.
               </p>
 
-              <Link to="/admin/create-hotel"
+              <Link to="/admin/add-hotel"
                 className='inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition duration-200'
               >
                 Add Hotel
