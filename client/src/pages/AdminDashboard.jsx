@@ -2,11 +2,14 @@ import React, {useEffect, useState} from 'react';
 import api from '../services/api';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const AdminDashboard = () => {
 
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const {user} = useAuth();
 
 
   // Fetch stats
@@ -45,13 +48,20 @@ const AdminDashboard = () => {
 
         <div className='mb-10'>
 
-          <h1 className='text-4xl font-bold text-slate-900'>
+          <p className='text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3'>
             Admin Dashboard
-          </h1>
-
-          <p className='text-slate-600 text-lg'>
-            Monitor platform performance and manage hotels.
           </p>
+
+          <h1 className='text-4xl sm:text-5xl font-bold text-slate-900 leading-tight'>
+
+            Welcome back,
+            {" "}
+
+            <span className='text-slate-700'>
+              {user.name}
+            </span>
+
+          </h1>
 
         </div>
 
