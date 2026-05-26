@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getHotelById } from '../services/hotelService';
 import toast from 'react-hot-toast';
 import { createBooking } from '../services/bookingService';
@@ -121,6 +121,21 @@ const HotelDetailsPage = () => {
     <div className='min-h-screen bg-slate-50'>
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
+
+        <div className='mb-2 text-right'>
+
+          <Link to="/"
+            className=' px-6 py-3 rounded-2xl inline-flex items-center gap-2 text-[#001F6B] font-semibold text-md hover:bg-[#001750] hover:text-white transition duration-200 cursor-pointer'
+          >
+            <span>
+              ←
+            </span>
+            Home
+          </Link>
+
+        </div>
+
+        <hr className='mb-10 text-zinc-400'/>
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
 

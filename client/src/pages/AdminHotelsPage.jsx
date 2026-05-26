@@ -68,9 +68,16 @@ const AdminHotelsPage = () => {
 
           <div>
 
-            <h1 className='text-4xl font-bold text-[#001F6B] mb-2'>
-              Manage Hotels
-            </h1>
+            <Link to="/"
+              className='px-6 py-3 rounded-2xl inline-flex items-center gap-2 text-[#001F6B] font-semibold text-md hover:text-white hover:bg-[#001F6B] transition duration-200 cursor-pointer'
+            >
+
+              <span>
+                ←
+              </span>
+              Home
+
+            </Link>
 
           </div>
 

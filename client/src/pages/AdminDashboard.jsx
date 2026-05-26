@@ -48,9 +48,16 @@ const AdminDashboard = () => {
 
         <div className='mb-10'>
 
-          <p className='text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3'>
-            Admin Dashboard
-          </p>
+          <Link to="/"
+            className=' px-6 py-3 rounded-2xl inline-flex items-center gap-2 text-[#001F6B] font-semibold text-md hover:bg-[#001750] hover:text-white transition duration-200 cursor-pointer mb-2'
+          >
+            <span>
+              ←
+            </span>
+            Home
+          </Link>
+
+          <hr className='mb-10 text-zinc-400'/>
 
           <h1 className='text-4xl sm:text-5xl font-bold text-[#001F6B] leading-tight'>
 
