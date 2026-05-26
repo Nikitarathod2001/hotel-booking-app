@@ -122,7 +122,7 @@ const HotelDetailsPage = () => {
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
 
-        <div className='mb-2 text-right'>
+        <div className='mb-2'>
 
           <Link to="/"
             className=' px-6 py-3 rounded-2xl inline-flex items-center gap-2 text-[#001F6B] font-semibold text-md hover:bg-[#001750] hover:text-white transition duration-200 cursor-pointer'
