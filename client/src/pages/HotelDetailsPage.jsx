@@ -273,7 +273,7 @@ const HotelDetailsPage = () => {
                     onChange={handleChange}
                     min={today}
                     required
-                    className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                    className='w-full rounded-2xl px-3 py-3 border border-zinc-400'
                   />
 
                 </div>
@@ -290,7 +290,7 @@ const HotelDetailsPage = () => {
                     onChange={handleChange}
                     min={bookingData.checkInDate || today}
                     required
-                    className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                    className='w-full rounded-2xl px-3 py-3 border border-zinc-400'
                   />
 
                 </div>
@@ -307,7 +307,7 @@ const HotelDetailsPage = () => {
                     onChange={handleChange}
                     min="1"
                     required
-                    className='w-full rounded-2xl border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                    className='w-full rounded-2xl px-3 py-3 border border-zinc-400'
                   />
 
                 </div>
