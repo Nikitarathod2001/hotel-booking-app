@@ -26,7 +26,7 @@ export const registerUser = async (req, res) => {
     const user = await User.findOne({email}).select("-password");
 
     // Generate token
-    const token = generateToken(user._id);
+    const token = generateToken(user._id, user.role);
 
     res.status(201).json({
       message: "User registered successfully",
@@ -73,8 +73,13 @@ export const loginUser = async (req, res) => {
       });
     }
 
+    if(email === process.env.ADMIN_EMAIL) {
+      user.role = "admin";
+      await user.save();
+    }
+
     // Generate token
-    const token = generateToken(user._id);
+    const token = generateToken(user._id, user.role);
 
     res.status(200).json({
       message: "Login Successful",
