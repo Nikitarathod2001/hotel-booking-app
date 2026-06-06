@@ -64,7 +64,7 @@ const AdminHotelsPage = () => {
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10'>
 
-        <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-10'>
+        <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-5'>
 
           <div>
 
@@ -88,6 +88,8 @@ const AdminHotelsPage = () => {
           </Link>
 
         </div>
+
+        <hr className='mb-5 text-zinc-400' />
 
         {
           hotels.length === 0 ? (
