@@ -10,20 +10,33 @@ const AdminHotelsPage = () => {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
 
   // Fetch hotels
-  const fetchHotels = async () => {
+  const fetchHotels = async (page = 1) => {
     try {
 
       setLoading(true);
-      const data = await getAllHotels();
+      const data = await getAllHotels({
+        page, 
+        limit: 10,
+      });
+
       setHotels(data.hotels);
+      setTotalPages(data.totalPages);
       
     } catch (error) {
       toast.error("Failed to fetch hotels");
     } finally {
       setLoading(false);
     }
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    fetchHotels(page);
   };
 
 
@@ -49,7 +62,7 @@ const AdminHotelsPage = () => {
 
 
   useEffect(() => {
-    fetchHotels();
+    fetchHotels(1);
   }, []);
 
   
@@ -170,6 +183,35 @@ const AdminHotelsPage = () => {
 
                   </div>
                 ))
+              }
+
+            </div>
+          )
+        }
+
+        {/* Pagination */}
+        {
+          totalPages > 1 && (
+            <div className='flex justify-center items-center gap-3 mt-12 flex-wrap'>
+
+              {
+                Array.from(
+                  {length: totalPages},
+                  (_, index) => (
+                    <button key={index}
+                      onClick={() => handlePageChange(index + 1)}
+                      className={`px-4 py-2 rounded-xl border transition duration-200 ${
+                        currentPage === index + 1 
+                        ? "bg-[#001F6B] text-white border-[#001F6B]"
+                        : "bg-white text-slate-700 border-slate-300 hover:bg-slate-100"
+                      }`}
+                    >
+                      {
+                        index + 1
+                      }
+                    </button>
+                  )
+                )
               }
 
             </div>
