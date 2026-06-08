@@ -41,8 +41,8 @@ export const createCheckoutSession = async (req, res) => {
           },
         ],
 
-        success_url: "stayfinder-beryl.vercel.app/payment-success",
-        cancel_url: "stayfinder-beryl.vercel.app/payment-cancel",
+        success_url: "https://stayfinder-beryl.vercel.app/payment-success",
+        cancel_url: "https://stayfinder-beryl.vercel.app/payment-cancel",
 
         metadata: {
           bookingId: booking._id.toString(),
