@@ -41,8 +41,8 @@ export const createCheckoutSession = async (req, res) => {
           },
         ],
 
-        success_url: "http://localhost:5173/payment-success",
-        cancel_url: "http://localhost:5173/payment-cancel",
+        success_url: "https://stayfinder-pt1jf9147-nikita-rathods-projects.vercel.app/payment-success",
+        cancel_url: "https://stayfinder-pt1jf9147-nikita-rathods-projects.vercel.app/payment-cancel",
 
         metadata: {
           bookingId: booking._id.toString(),
