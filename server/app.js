@@ -17,7 +17,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://stayfinder-pt1jf9147-nikita-rathods-projects.vercel.app",
+    "https://stayfinder-beryl.vercel.app",
   ],
   credentials: true,
 }));
