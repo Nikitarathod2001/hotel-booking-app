@@ -14,7 +14,13 @@ const app = express();
 
 
 // middlewares
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://stayfinder-api-9ipx.onrender.com/",
+  ],
+  credentials: true,
+}));
 
 app.use(
   "/api/webhooks/stripe",
