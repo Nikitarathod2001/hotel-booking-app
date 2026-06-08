@@ -20,7 +20,7 @@ const HomePage = () => {
   // Applied filters for API
   const [appliedFilters, setAppliedFilters] = useState({
     page: 1,
-    limit: 10,
+    limit: 12,
   });
 
   // Fetch hotels

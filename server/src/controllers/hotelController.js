@@ -1,5 +1,6 @@
 import Hotel from "../models/Hotel.js";
 import cloudinary from "../config/cloudinary.js";
+import Booking from "../models/Booking.js";
 
 
 // Add Hotel
@@ -52,7 +53,7 @@ export const getHotels = async (req, res) => {
       minPrice,
       maxPrice,
       page = 1,
-      limit = 10,
+      limit = 12,
     } = req.query;
 
     // dynamic query
@@ -183,6 +184,11 @@ export const deleteHotel = async (req, res) => {
         message: "Hotel not found"
       });
     }
+
+    // Delete all bookings
+    await Booking.deleteMany({
+      hotel: hotel._id
+    });
 
     await hotel.deleteOne();
 

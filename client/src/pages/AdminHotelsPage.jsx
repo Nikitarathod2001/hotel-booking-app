@@ -21,7 +21,7 @@ const AdminHotelsPage = () => {
       setLoading(true);
       const data = await getAllHotels({
         page, 
-        limit: 10,
+        limit: 12,
       });
 
       setHotels(data.hotels);
