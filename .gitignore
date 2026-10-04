@@ -2,3 +2,13 @@ server/node_modules
 server/.env
 steps
 code-steps
+
+node_modules/
+.env
+.env.*
+dist/
+build/
+
+.vscode/
+.DS_Store
+npm-debug.log*
