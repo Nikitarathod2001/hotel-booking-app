@@ -53,7 +53,7 @@ export const getHotels = async (req, res) => {
       minPrice,
       maxPrice,
       page = 1,
-      limit = 12,
+      limit = 9,
     } = req.query;
 
     // dynamic query
